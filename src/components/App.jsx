@@ -45,7 +45,7 @@ export class App extends Component {
     });
   };
 
-  filterSearh = () => {
+  filterSearch = () => {
     const { contact, filter } = this.state;
     if (!filter) {
       return contact;
@@ -59,7 +59,7 @@ export class App extends Component {
   };
 
   render() {
-    const arrFindContact = this.filterSearh();
+    const arrFindContact = this.filterSearch();
     return (
       <section className={css.app}>
         <h1>Phonebook</h1>
