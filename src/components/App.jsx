@@ -17,6 +17,20 @@ export class App extends Component {
     filter: '',
   };
 
+  componentDidMount(){
+    const contact = localStorage.getItem("contact");
+    const parsedContact = JSON.parse(contact);
+    if(parsedContact){
+      this.setState({ contact: parsedContact })
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState){
+    if(this.state.contact !== prevState.contact){
+      localStorage.setItem("contact", JSON.stringify(this.state.contact))
+    }
+  }
+
   addContact = data => {
     const dubleNumber = this.state.contact.find(
       ({ name }) => name === data.name.toLowerCase()
